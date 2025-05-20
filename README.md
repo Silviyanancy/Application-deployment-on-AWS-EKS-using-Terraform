@@ -40,11 +40,11 @@ terraform plan
 terraform apply
 ```
 
-### 4. VPC in AWS Console
+### 4. VPC and Subnets in AWS Console
 
 ![VPC-Subnets](./Images/VPC_Subnets_RT.png)
 
-### 3. EKS Clster in AWS Console
+### 3. EKS Cluster and Worker Node in AWS Console
 
 ![EKS-Cluster](./Images/EKS_Cluster.png)
 ![Worker-Node](./Images/Nodes.png)
