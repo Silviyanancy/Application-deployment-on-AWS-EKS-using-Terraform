@@ -136,3 +136,10 @@ kubectl get ingress <ingress_name> -o jsonpath='{.status.loadBalancer.ingress[0]
 ```
 
 ![Load Balancer](./Images/LoadBalancer.png)
+
+### References:
+
+1. https://registry.terraform.io/providers/hashicorp/aws/latest
+2. https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html
+3. https://www.youtube.com/playlist?list=PLiMWaCMwGJXkYKFa_x0Ch38uznuv-4c3l
+4. https://www.youtube.com/watch?v=RRCrY12VY_s
