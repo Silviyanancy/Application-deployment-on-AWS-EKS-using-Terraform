@@ -1,6 +1,6 @@
 # Deployment of a Static Website on AWS EKS with ALB Ingress
 
-## Part 1: Infrastructure: VPC, EKS Cluster, IAM Roles (Terraform).
+## Part 1: Infrastructure Creation of EKS Cluster (Terraform)
 
 To deploy an EKS cluster in AWS, the following networking components are required,
 
@@ -21,5 +21,103 @@ To deploy an EKS cluster in AWS, the following networking components are require
 - route.tf - Two route tables (public and private) and associates subnets with them to control traffic flow.
 - eks.tf - Configuration for the EKS cluster, IAM role, and associated policies.
 - nodes.tf - Configures IAM roles, policies, and an EKS node group for worker nodes in your Kubernetes cluster.
+- backend.tf - Configuration to store the state file in backend.
+- remote-state.tf - Configuration of S3 bucket and DynamoDB table.
+
+#### Prerquisties
+
+- AWS CLI
+- Terraform
+- Helm
+- EKSCTL
+
+#### Configure AWS CLI and terraform
+
+```bash
+aws configure
+terraform init
+terraform plan
+terraform apply
+```
+
+### VPC
+
+### EKS Clster
 
 ## Part 2: Application: App Deployment, Service, Ingress (Kubernetes Manifests), ALB using Helm.
+
+### 1. Configure Access to the EKS Cluster
+
+```bash
+aws eks update-kubeconfig --name <cluster_name> --region <region_name>
+```
+
+### 2. Deploy the Application (kubernetes)
+
+```bash
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl apply -f ingress.yaml
+```
+
+### 3. Verify Resources
+
+```bash
+kubectl get deployments
+kubectl get svc
+kubectl get ingress
+```
+
+### 4. Configure and associate IAM OIDC Provider
+
+```bash
+eksctl utils associate-iam-oidc-provider --cluster <cluster_name> --approve
+aws iam list-open-id-connect-providers #Verify the OIDC provider
+```
+
+### 5. Download and install the AWS Load Balancer Controller (ALB Ingress Controller) (For Windows)
+
+```bash
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.11.0/docs/install/iam_policy.json" -OutFile "iam_policy.json"
+```
+
+### 6. Create the IAM policy in AWS
+
+```bash
+aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://iam_policy.json
+```
+
+### 7. Create IAM Role for the ALB Controller
+
+```bash
+eksctl create iamserviceaccount --cluster=<cluster-name> --namespace=kube-system --name=aws-load-balancer-controller --attach-policy-arn=arn:aws:iam::<Account_ID>:policy/AWSLoadBalancerControllerIAMPolicy --approve --override-existing-serviceaccounts
+```
+
+### 8. Deploy the Controller
+
+```bash
+kubectl apply -k "github.com/aws/eks-charts/stable/aws-load-balancer-controller/crds?ref=master"
+
+helm repo add eks https://aws.github.io/eks-charts
+
+helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system
+ --set clusterName=<cluster_name> \
+ --set serviceAccount.create=false \
+ --set serviceAccount.name=aws-load-balancer-controller
+ --set region=<region> \
+ --set vpcId=<your-vpc-id>
+```
+
+### 9. Verify that the deployments are running.
+
+```bash
+kubectl get deployment -n kube-system aws-load-balancer-controller
+```
+
+### 10. Access the Application
+
+```bash
+kubectl get ingress
+
+kubectl get ingress <ingress_name> -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'
+```
