@@ -42,7 +42,7 @@ terraform apply
 
 ### 4. VPC in AWS Console
 
-![VPC and Subnets] (D:\GitHub_Projects\EKSTerraform\Images\VPC_Subnets_RT.png)
+![VPC and Subnets] (Images\VPC_Subnets_RT.png)
 
 ### 3. EKS Clster in AWS Console
 
