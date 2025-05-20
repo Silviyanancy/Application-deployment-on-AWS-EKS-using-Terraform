@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 300px;
+            background-color: #f0a500;
+            height: 100vh;
+            position: fixed;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .profile h1 {
+            font-size: 1.5rem;
+            color: #000000;
+        }
+
+        .profile p {
+            color: #333333;
+            font-size: 0.9rem;
+        }
+
+        /* Navigation */
+        .navigation {
+            margin-top: 30px;
+        }
+
+        .navigation a {
+            display: block;
+            text-decoration: none;
+            color: #000000;
+            margin: 10px 0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .navigation a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 320px;
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #f0a500;
+            margin-bottom: 10px;
+        }
+
+        .card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            color: #000000;
+        }
+
+        .card p {
+            color: #333333;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #666666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="profile">
+            <h1>Silviya Nancy John Mari Vienni</h1>
+            <p>Open to New Opportunities in Cloud & DevOps Engineering | AWS & DevOps Specialist | CI/CD | Kubernetes | Terraform | Data Science | Machine Learning</p>
+        </div>
+        <div class="navigation">
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills & Technologies</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- About Section -->
+        <div class="section" id="about">
+            <h2>Professional Summary</h2>
+            <p>Seasoned academic professional with nine years of experience in teaching computer science engineering, now
+                leveraging the technical expertise into software engineering roles.</p>
+            <p>Proficient in tools like Kubernetes, Docker, Jenkins, GitHub Actions, and AWS.</p>
+            <p>Experience in managing Linux infrastructure, resource tracking in cloud platforms using shell scripting, and
+                infrastructure management using Cloud Formation,Ansible and Terraform.</p>
+            <p>Proficient in containerizing applications, orchestrating deployments using Kubernetes, while implementing
+                CI/CD pipelines with Jenkins for seamless automation.</p>
+            <p>Experienced in developing cloud-native applications, machine and deep learning models, NLP applications,
+                and Large Language Models (LLMs), with knowledge of emerging technologies such as MLOps.</p>
+            <p>Published research papers and delivered conference presentations on topics such as machine learning, and cloud computing and mentored students in research and project development.</p>
+            <p>Expertise in data cleaning, exploratory data analysis, descriptive and inferential statistics, statistical methods
+                with Python and R.</p>
+            <p>Proven ability to communicate insights through data visualization tools like Tableau, Matplotlib, and Seaborn.</p>
+            <p>Strong background in teaching and applying statistical and mathematical concepts behind ML, with hands-on
+                experience in Python and R-based projects.</p>
+        </div>
+
+        <!-- Skills & Technologies Section -->
+        <div class="section" id="skills">
+            <h2>Skills & Technologies</h2>
+
+            <p class="Cloud Services"><h3><strong>Cloud Services: </strong></h3>AWS - EC2, S3, DynamoDB, IAM, Lambda, VPC, Security Groups, EBS, RDS, API Gateway, Cloud9, Cloud Formation, CloudWatch, SNS.</p>
+
+            <p class="Infrastructure Automation & DevOps Tools"><h3><strong>Infrastructure Automation & DevOps Tools: </strong></h3>Jenkins, GitHub Actions, Docker, Kubernetes (AWS EKS), Ansible, Terraform, CI/CD Pipelines, AWS CodeCommit, CodeBuild, CodePipeline, CodeDeploy, ECR, Helm, Argo CD.</p>
+
+            <p class="Version Control & Collaboration"><h3><strong>Version Control & Collaboration: </strong></h3>Git, GitHub, Agile tools like Azure DevOps, JIRA.</p>
+
+            <p class="Monitoring & Logging"><h3><strong>Monitoring & Logging: </strong></h3>Prometheus, Grafana.</p>
+
+            <p class="Programming Languages & Tools"><h3><strong>Programming Languages & Tools: </strong></h3>Python, R, Shell Scripting (Bash), SQL, PostgreSQL,Jupyter Notebook, RStudio.</p>
+
+            <p class="Data Cleaning & Preprocessing"><h3><strong>Data Cleaning & Preprocessing: </strong></h3>Pandas, NumPy (handling missing data, outliers, and inconsistencies, feature engineering), Scikit-learn (normalization, standardization), Beautiful Soup (web scraping).</p>
+
+            <p class="Statistical Analysis"><h3><strong>Statistical Analysis: </strong></h3>Probability Distributions (Normal, Binomial, Poisson, Exponential), Hypothesis Testing (z-tests, t-tests, chi-square tests), Confidence Intervals.</p>
+
+            <p class="Machine Learning & MLOps"><h3><strong>Machine Learning & MLOps: </strong></h3>Linear & Logistic Regression, Decision Trees, Random Forests, SVM, XGBoost, CNNs, RNNs, LSTMs, Transformers (BERT, GPT), Autoencoders, TensorFlow, PyTorch, MLflow, DVC.</p>
+                              
+        </div>
+   
+        <!-- Projects Section -->
+        <div class="section" id="projects">
+            <h2>Projects</h2>
+
+            <!-- Project 1 -->
+            <div class="card">
+                <h3><a href="https://github.com/Silviyanancy/KubeDeploy" target="_blank" style="color: #f0a500;">Automation of EKS Infrastructure and Scalable Container Deployment</a></h3>
+                <p>Provisioning of an Amazon EKS cluster, S3 bucket, combined with the deployment of scalable NGINX
+                    containers using Helm charts and Kubernetes LoadBalancers.</p>
+                <p>Automated Docker image deployment with CI/CD pipelines using GitHub Actions and Amazon ECR.</p>
+                <p class="technologies">Technologies: AWS Cloud Formation, Kubernetes, Helm, EKS, ECR, S3, Ngnix, GitHub Actions.</p>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="card">
+                <h3><a href="https://github.com/Silviyanancy/MERN_App" target="_blank" style="color: #f0a500;">Containerizing a MERN Stack App and Deploying using Kubernetes</a></h3>
+                <p>Containerized a MERN stack application and deployed it using Kubernetes for scalable and efficient orchestration.</p>
+                <p>Monitored deployments using Prometheus and Grafana, and automated Docker image push to DockerHub with shell scripting.</p>
+                <p class="technologies">Technologies: Shell Scripting, Python, React, Flask, MongoDB, Jenkins, Docker, Kubernetes.</p>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="card">
+                <h3><a href="https://github.com/Silviyanancy/DevopsReactStory" target="_blank" style="color: #f0a500;">Story Blog Deployment with CI/CD</a></h3>
+                <p>Designed and implemented a story blog by building a React Docker Image with a Jenkins Pipeline.</p>
+                <p class="technologies">Technologies: Jenkins, Docker, Kubernetes, React.</p>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="card">
+                <h3><a href="https://github.com/Silviyanancy/LearnerSpace" target="_blank" style="color: #f0a500;">LearnerSpace - A Serverless Approach for an E-Learning Platform</a></h3>
+                <p>Built a full-stack e-learning platform where the users can purchase the course and learn using AWS Amplify, AppSync, and Stripe.</p>
+                <p class="technologies">Technologies: Amplify CLI, AWS Amplify React Library, Amplify UI Library (GraphQL API – AppSync, Incognito, DynamoDB, Lambda, S3), React, Stripe.</p>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="card">
+                <h3><a href="https://github.com/Silviyanancy/Media-Insight" target="_blank" style="color: #f0a500;">Media Insights</a></h3>
+                <p>Designed and developed ML models for Text-to-Image generation, Image description generation, and Text Summarization. Containerized the frontend, backend, database, and ML models.</p>
+                <p class="technologies">Technologies: Flask, Kafka, MongoDB, Docker, Python, React.</p>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="card">
+                <h3>Computation Offloading of Resource Intensive Applications into Cloud</h3>
+                <p>Mobile Cloud Computing - Offloading resource-intensive applications like video conversion from smartphones to Cloud.</p>
+                <p class="technologies">Technologies: Python, AWS EC2, S3.</p>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="card">
+                <h3>Resource Usage Tracking in AWS</h3>
+                <p>Resource Tracking of AWS Services like EC2, IAM, and S3 using Shell Scripting.</p>
+                <p class="technologies">Technologies: Shell Scripting, AWS EC2.</p>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="card">
+                <h3><a href="https://github.com/Silviyanancy/Synthetic-Employee-Attrition-Analysis-and-Prediction" target="_blank" style="color: #f0a500;">Synthetic Employee Attrition Analysis and Prediction</a></h3>
+                <p>Developed a classification model to analyze synthetic employee attrition data, identify key factors influencing
+                    turnover, and predict employee attrition using machine learning techniques.</p>
+                <p class="technologies">Technologies & Algorithms: Python, ML Models (Logistic Regression, Random Forest Classifier, XG
+                    Boost with hyperparameter tuning).</p>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="card">
+                <h3><a href="https://github.com/Silviyanancy/8245-final-project-mail-classification" target="_blank" style="color: #f0a500;">Email Filtering</a></h3>
+                <p>Designed and developed an NLP application that enables real-time email classification using Bag-of-Words.</p>
+                <p class="technologies">Technologies & Algorithms : Python, ML Models (Logistic Regression, LSTM).</p>
+            </div>
+
+             <!-- Project 10 -->
+             <div class="card">
+                <h3><a href="https://github.com/Silviyanancy/Serverless_Pipeline_AWS" target="_blank" style="color: #f0a500;">
+                    Building a Serverless CSV-to-Parquet Pipeline on AWS</a></h3>
+                <p>This project is to build an automated pipeline that converts CSV files into Parquet format using AWS Services. The pipeline leverages Amazon S3 for storage, AWS Lambda for event-driven triggers, and AWS Glue for serverless ETL (Extract, Transform, Load).</p>
+                <p class="technologies">Technologies : AWS S3, AWS Lambda, AWS Glue</p>
+            </div>
+
+
+
+            
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section" id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:jsilviyanancy@gmail.com" style="color: #f0a500;">jsilviyanancy@gmail.com</a></p>
+            <p>GitHub: <a href="https://github.com/Silviyanancy" target="_blank" style="color: #f0a500;">https://github.com/Silviyanancy</a></p>
+            <p>Google Scholar: <a href="https://scholar.google.com/citations?user=06twcCYAAAAJ&hl=en" target="_blank" style="color: #f0a500;">Google Scholar</a></p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Silviya Nancy. All rights reserved.
+    </footer>
+</body>
+</html>
