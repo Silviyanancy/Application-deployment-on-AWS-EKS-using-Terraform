@@ -44,7 +44,7 @@ terraform apply
 
 ![VPC-Subnets](./Images/VPC_Subnets_RT.png)
 
-### 3. EKS Cluster and Worker Node in AWS Console
+### 5. EKS Cluster and Worker Node in AWS Console
 
 ![EKS-Cluster](./Images/EKS_Cluster.png)
 ![Worker-Node](./Images/Nodes.png)
