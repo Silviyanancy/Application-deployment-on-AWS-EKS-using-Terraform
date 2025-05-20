@@ -1,4 +1,4 @@
-# Deployment of a Static Website on AWS EKS with ALB Ingress
+# Deploying Application on AWS EKS with ALB Ingress
 
 ## Part 1: Infrastructure Creation of EKS Cluster (Terraform)
 
