@@ -1,0 +1,39 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform.lock.hcl
+terraform.tfstate.lock.info
+
+# Local sensitive/auto-generated files
+*.kubeconfig
+*.env
+*.log
+.terraform.lock.hd  
+
+# IDE/Editor specific
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Docker/Kubernetes temp files
+**/build/
+**/tmp/
+*.dockerignore
+
+# Terraform override files
+override.tf
+override.tf.json
+
+# Crash logs
+crash.log
+
+# Local plan/output files
+*.plan
+*.out
