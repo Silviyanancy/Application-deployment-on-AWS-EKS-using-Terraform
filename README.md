@@ -42,9 +42,12 @@ terraform apply
 
 ### 4. VPC in AWS Console
 
-![VPC in AWS Console](./Images/VPC_Subnets_RT.png)
+![VPC-Subnets](./Images/VPC_Subnets_RT.png)
 
 ### 3. EKS Clster in AWS Console
+
+![EKS-Cluster](./Images/EKS_Cluster.png)
+![Worker-Node](./Images/Nodes.png)
 
 ## Part 2: Application: App Deployment, Service, Ingress (Kubernetes Manifests), ALB using Helm.
 
@@ -122,6 +125,8 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n ku
 kubectl get deployment -n kube-system aws-load-balancer-controller
 ```
 
+![ALB_LoadBalancer Controller](./Images/ALB_Controller.png)
+
 ### 11. Access the Application
 
 ```bash
@@ -129,3 +134,5 @@ kubectl get ingress
 
 kubectl get ingress <ingress_name> -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'
 ```
+
+![Load Balancer](./Images/LoadBalancer.png)
