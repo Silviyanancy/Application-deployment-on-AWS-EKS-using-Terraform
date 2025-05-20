@@ -10,7 +10,7 @@ To deploy an EKS cluster in AWS, the following networking components are require
 - NAT Gateway in one of the public subnets which translates the private IP address to public that allows internet access within the private subnets.
 - Route table - Public Route (Target - Internet Gateway), Private Route (Target - NAT Gateway) and attach these to the subnets.
 
-## EKS_Terraform
+### 1. EKS_Terraform
 
 - locals.tf - locals block defines values for environment, region, availability zones, and EKS cluster details.
 - provider.tf - Configures the AWS provider, which allows Terraform to interact with AWS services.
@@ -24,14 +24,14 @@ To deploy an EKS cluster in AWS, the following networking components are require
 - backend.tf - Configuration to store the state file in backend.
 - remote-state.tf - Configuration of S3 bucket and DynamoDB table.
 
-#### Prerquisties
+### 2. Prerequisites
 
 - AWS CLI
 - Terraform
 - Helm
 - EKSCTL
 
-#### Configure AWS CLI and terraform
+### 3. Configure AWS CLI and terraform
 
 ```bash
 aws configure
@@ -40,19 +40,27 @@ terraform plan
 terraform apply
 ```
 
-### VPC
+### 4. VPC in AWS Console
 
-### EKS Clster
+![VPC and Subnets] (D:\GitHub_Projects\EKSTerraform\Images\VPC_Subnets_RT.png)
+
+### 3. EKS Clster in AWS Console
 
 ## Part 2: Application: App Deployment, Service, Ingress (Kubernetes Manifests), ALB using Helm.
 
-### 1. Configure Access to the EKS Cluster
+### 1. Prerequisites
+
+- Create an application using any language.
+- Create a Dockerfile.
+- Build Docker Image and push into DockerHub.
+
+### 2. Configure Access to the EKS Cluster
 
 ```bash
 aws eks update-kubeconfig --name <cluster_name> --region <region_name>
 ```
 
-### 2. Deploy the Application (kubernetes)
+### 3. Deploy the Application (kubernetes)
 
 ```bash
 kubectl apply -f deployment.yaml
@@ -60,7 +68,7 @@ kubectl apply -f service.yaml
 kubectl apply -f ingress.yaml
 ```
 
-### 3. Verify Resources
+### 4. Verify Resources
 
 ```bash
 kubectl get deployments
@@ -68,32 +76,32 @@ kubectl get svc
 kubectl get ingress
 ```
 
-### 4. Configure and associate IAM OIDC Provider
+### 5. Configure and associate IAM OIDC Provider
 
 ```bash
 eksctl utils associate-iam-oidc-provider --cluster <cluster_name> --approve
 aws iam list-open-id-connect-providers #Verify the OIDC provider
 ```
 
-### 5. Download and install the AWS Load Balancer Controller (ALB Ingress Controller) (For Windows)
+### 6. Download and install the AWS Load Balancer Controller (ALB Ingress Controller) (For Windows)
 
 ```bash
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.11.0/docs/install/iam_policy.json" -OutFile "iam_policy.json"
 ```
 
-### 6. Create the IAM policy in AWS
+### 7. Create the IAM policy in AWS
 
 ```bash
 aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://iam_policy.json
 ```
 
-### 7. Create IAM Role for the ALB Controller
+### 8. Create IAM Role for the ALB Controller
 
 ```bash
 eksctl create iamserviceaccount --cluster=<cluster-name> --namespace=kube-system --name=aws-load-balancer-controller --attach-policy-arn=arn:aws:iam::<Account_ID>:policy/AWSLoadBalancerControllerIAMPolicy --approve --override-existing-serviceaccounts
 ```
 
-### 8. Deploy the Controller
+### 9. Deploy the Controller
 
 ```bash
 kubectl apply -k "github.com/aws/eks-charts/stable/aws-load-balancer-controller/crds?ref=master"
@@ -108,13 +116,13 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n ku
  --set vpcId=<your-vpc-id>
 ```
 
-### 9. Verify that the deployments are running.
+### 10. Verify that the deployments are running.
 
 ```bash
 kubectl get deployment -n kube-system aws-load-balancer-controller
 ```
 
-### 10. Access the Application
+### 11. Access the Application
 
 ```bash
 kubectl get ingress
