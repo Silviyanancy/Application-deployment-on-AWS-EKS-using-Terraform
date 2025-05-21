@@ -10,6 +10,15 @@ To deploy an EKS cluster in AWS, the following networking components are require
 - NAT Gateway in one of the public subnets which translates the private IP address to public that allows internet access within the private subnets.
 - Route table - Public Route (Target - Internet Gateway), Private Route (Target - NAT Gateway) and attach these to the subnets.
 
+EKS Cluster Setup
+
+- EKS Cluster using Terraform AWS provider.
+- Node Group with worker nodes (e.g., EC2 instances managed by EKS)
+
+IAM Roles and Policies
+
+- Roles for: EKS Cluster, Node group, ALB Ingress Controller.
+
 ### 1. EKS_Terraform
 
 - locals.tf - locals block defines values for environment, region, availability zones, and EKS cluster details.
@@ -56,6 +65,8 @@ terraform apply
 - Create an application using any language.
 - Create a Dockerfile.
 - Build Docker Image and push into DockerHub.
+- Ensure the IAM OIDC provider is associated with the EKS cluster.
+- Deploy AWS Load Balancer Controller via Helm with proper IAM role and service account
 
 ### 2. Configure Access to the EKS Cluster
 
@@ -128,6 +139,8 @@ kubectl get deployment -n kube-system aws-load-balancer-controller
 ![ALB_LoadBalancer Controller](./Images/ALB_Controller.png)
 
 ### 11. Access the Application
+
+- DNS entry for ALB works and routes traffic to the application
 
 ```bash
 kubectl get ingress
